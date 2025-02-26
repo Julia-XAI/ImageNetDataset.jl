@@ -76,11 +76,6 @@ tfm = CenterResizeCrop((224, 224)) |> ImageToTensor() |> Normalize(mean, std)
 dataset = ImageNet(:val; transform=tfm)
 ```
 
-> [!WARNING]
-> Note that DataAugmentation.jl returns features in `HWC[N]` format instead of `WHC[N]`.
-> Transformations from DataAugmentation.jl are also slightly less performant
-> and not compatible with `convert2image`. 
-
 ## Related packages
 
 * [MLDatasets.jl](https://github.com/JuliaML/MLDatasets.jl): Utility package for accessing common Machine Learning datasets in Julia
