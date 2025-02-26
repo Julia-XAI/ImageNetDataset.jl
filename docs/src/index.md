@@ -4,7 +4,7 @@ CurrentModule = ImageNetDataset
 
 # ImageNetDataset
 
-Documentation for [ImageNetDataset](https://github.com/adrhill/ImageNetDataset.jl).
+Documentation for [ImageNetDataset](https://github.com/Julia-XAI/ImageNetDataset.jl).
 
 ## API Reference
 ### Dataset
