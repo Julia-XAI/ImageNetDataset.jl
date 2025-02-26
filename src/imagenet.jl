@@ -26,7 +26,7 @@ function __init__imagenet()
             It is therefore required that you download this dataset manually.
 
             Please follow the instructions at
-            https://adrhill.github.io/ImageNetDataset.jl/dev/installation/
+            https://Julia-XAI.github.io/ImageNetDataset.jl/dev/installation/
             """,
         ),
     )

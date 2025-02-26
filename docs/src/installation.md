@@ -95,6 +95,6 @@ to create all class directories and move images into corresponding directories:
 
 ```bash
 cd ImageNet/val
-wget -qO- https://raw.githubusercontent.com/adrhill/ImageNetDataset.jl/master/docs/src/valprep.sh | bash
+wget -qO- https://raw.githubusercontent.com/Julia-XAI/ImageNetDataset.jl/master/docs/src/valprep.sh | bash
 ```
     

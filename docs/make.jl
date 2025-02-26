@@ -10,11 +10,11 @@ makedocs(;
     authors="Adrian Hill <gh@adrianhill.de>",
     sitename="ImageNetDataset.jl",
     format=Documenter.HTML(;
-        canonical="https://adrhill.github.io/ImageNetDataset.jl",
+        canonical="https://Julia-XAI.github.io/ImageNetDataset.jl",
         edit_link="main",
         assets=String[],
     ),
     pages=["Home" => "index.md", "Installation" => "installation.md"],
 )
 
-deploydocs(; repo="github.com/adrhill/ImageNetDataset.jl", devbranch="main")
+deploydocs(; repo="github.com/Julia-XAI/ImageNetDataset.jl", devbranch="main")

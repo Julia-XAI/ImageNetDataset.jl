@@ -1,8 +1,8 @@
 # ImageNetDataset.jl
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://adrhill.github.io/ImageNetDataset.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://adrhill.github.io/ImageNetDataset.jl/dev/)
-[![Build Status](https://github.com/adrhill/ImageNetDataset.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/adrhill/ImageNetDataset.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://Julia-XAI.github.io/ImageNetDataset.jl/stable/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://Julia-XAI.github.io/ImageNetDataset.jl/dev/)
+[![Build Status](https://github.com/Julia-XAI/ImageNetDataset.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/Julia-XAI/ImageNetDataset.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
 Data loader for the ImageNet 2012 Classification Dataset (ILSVRC 2012-2017) in Julia.
@@ -13,11 +13,11 @@ The ImageNet dataset can be downloaded at [image-net.org](https://image-net.org/
 after signing up and accepting the terms of access.
 It is therefore required that you download this dataset manually.
 
-[Installation instructions can be found in the documentation.](https://adrhill.github.io/ImageNetDataset.jl/dev/installation/)
+[Installation instructions can be found in the documentation.](https://Julia-XAI.github.io/ImageNetDataset.jl/dev/installation/)
 
 Afterwards, add this package via
 ```julia-repl
-julia> ]add https://github.com/adrhill/ImageNetDataset.jl
+julia> ]add https://github.com/Julia-XAI/ImageNetDataset.jl
 ```
 
 ## Examples
