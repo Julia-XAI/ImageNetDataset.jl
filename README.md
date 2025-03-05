@@ -58,7 +58,7 @@ dataset = ImageNet(:val; transform=tfm)
 Custom transformations can be implemented by extending `AbstractTransformation`.
 
 To apply a transformation outside of the `ImageNet` dataset,
-e.g. to preprocess a single image add a given `path`, run
+e.g. to preprocess a single image at a given `path`, run
 
 ```julia
 transform(tfm, path)
@@ -82,6 +82,6 @@ dataset = ImageNet(:val; transform=tfm)
 
 > [!NOTE]
 > This repository is based on [MLDatasets.jl PR #146](https://github.com/JuliaML/MLDatasets.jl/pull/146)
-> and mirrors the MLDatasets API.
+> and mirrors the MLDatasets `v0.7` API.
 >
 > Copyright (c) 2015 Hiroyuki Shindo and contributors.

@@ -70,23 +70,25 @@ Download the following files from the [ILSVRC2012 download page](https://image-n
 You can use ImageNetDataset.jl without downloading all splits.
 
 After downloading the data, move and extract the training and validation images to
-labeled subfolders by running the following shell script:
+labeled subfolders by running the following shell scripts:
 
+**Extract metadata from the devkit:**
 ```bash
-# Extract the training data:
+mkdir -p ImageNet/devkit && tar -xvf ILSVRC2012_devkit_t12.tar -C ImageNet/devkit --strip-components=1
+```
+
+**Extract the training data:**
+```bash
 mkdir -p ImageNet/train && tar -xvf ILSVRC2012_img_train.tar -C ImageNet/train
 
 # Unpack all 1000 compressed tar-files, one for each category:
 cd ImageNet/train
 find . -name "*.tar" | while read NAME ; do mkdir -p "\${NAME%.tar}"; tar -xvf "\${NAME}" -C "\${NAME%.tar}"; rm -f "\${NAME}"; done
+```
 
-# Extract the validation data:
-cd ../..
+**Extract the validation data:**
+```bash
 mkdir -p ImageNet/val && tar -xvf ILSVRC2012_img_val.tar -C ImageNet/val
-
-# Extract metadata from the devkit:
-cd ../..
-mkdir -p ImageNet/devkit && tar -xvf ILSVRC2012_devkit_t12.tar.gz -C ImageNet/devkit --strip-components=1
 ```
 
 And run the following script 
@@ -97,4 +99,3 @@ to create all class directories and move images into corresponding directories:
 cd ImageNet/val
 wget -qO- https://raw.githubusercontent.com/Julia-XAI/ImageNetDataset.jl/master/docs/src/valprep.sh | bash
 ```
-    

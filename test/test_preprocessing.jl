@@ -43,7 +43,7 @@ img = inverse_transform(tfm, A)
 @test size(img) == (40, 60)
 
 # DataAugmentations.jl
-tfm = CenterResizeCrop((60, 40)) |> ImageToTensor() |> Normalize(default_mean, default_std)
+tfm = CenterResizeCrop((40, 60)) |> ImageToTensor() |> Normalize(default_mean, default_std)
 A = transform(tfm, path)
 @test size(A) == (60, 40, 3)
 @test_reference "references/DataAugmentations.txt" A

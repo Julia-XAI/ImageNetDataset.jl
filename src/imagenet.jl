@@ -131,8 +131,6 @@ function ImageNet(
     test_dir="test",
     devkit_dir="devkit",
 )
-    @assert split ∈ (:train, :val, :test)
-
     depname = "ImageNet"
     root_dir = get_datadep_dir(depname, dir)
 
@@ -146,9 +144,11 @@ function ImageNet(
     elseif split == :val
         paths = get_file_paths(joinpath(root_dir, val_dir))
         @assert length(paths) == VALSET_SIZE
-    else
+    elseif split == :test
         paths = get_file_paths(joinpath(root_dir, test_dir))
         @assert length(paths) == TESTSET_SIZE
+    else
+        throw(ArgumentError("Unknown split :$split"))
     end
     targets = [metadata["wnid_to_label"][wnid] for wnid in get_wnids(paths)]
     return ImageNet(split, transform, paths, targets, metadata)
