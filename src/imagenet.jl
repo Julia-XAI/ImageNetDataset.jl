@@ -147,7 +147,7 @@ function ImageNet(
     elseif split == :test
         paths = get_file_paths(joinpath(root_dir, test_dir))
         @assert length(paths) == TESTSET_SIZE
-    else 
+    else
         throw(ArgumentError("Unknown split :$split"))
     end
     targets = [metadata["wnid_to_label"][wnid] for wnid in get_wnids(paths)]

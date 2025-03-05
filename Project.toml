@@ -19,7 +19,7 @@ DataAugmentation = "88a5189c-e7ff-4f85-ac6b-e6158070f02e"
 ImageNetDatasetDataAugmentationExt = "DataAugmentation"
 
 [compat]
-DataAugmentation = "0.2"
+DataAugmentation = "0.3"
 DataDeps = "0.7"
 ImageCore = "0.10"
 JpegTurbo = "0.1"
