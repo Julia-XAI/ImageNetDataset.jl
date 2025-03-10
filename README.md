@@ -17,7 +17,7 @@ It is therefore required that you download this dataset manually.
 
 Afterwards, add this package via
 ```julia-repl
-julia> ]add https://github.com/Julia-XAI/ImageNetDataset.jl
+julia> ]add ImageNetDataset
 ```
 
 ## Examples
@@ -85,3 +85,7 @@ dataset = ImageNet(:val; transform=tfm)
 > and mirrors the MLDatasets `v0.7` API.
 >
 > Copyright (c) 2015 Hiroyuki Shindo and contributors.
+
+## Acknowledgements
+
+Adrian Hill gratefully acknowledges funding from the German Federal Ministry of Education and Research under the grant BIFOLD25B.
