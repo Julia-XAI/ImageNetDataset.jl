@@ -1,6 +1,6 @@
 is_jpeg(path) = endswith(path, ".JPEG")
 
-function get_datadep_dir(depname, dir=nothing)
+function get_datadep_dir(depname, dir = nothing)
     @show depname dir
     if isnothing(dir)
         # use DataDeps defaults
@@ -12,7 +12,7 @@ function get_datadep_dir(depname, dir=nothing)
     end
 end
 
-function get_file_paths(path; recursive=true)
+function get_file_paths(path; recursive = true)
     images = String[]
     if isfile(path)
         is_jpeg(path) && push!(images, path)
@@ -23,7 +23,7 @@ function get_file_paths(path; recursive=true)
                 append!(images, filter(is_jpeg, paths))
             end
         else # not recursive
-            paths = readdir(path; join=true)
+            paths = readdir(path; join = true)
             append!(images, filter(is_jpeg, paths))
         end
     else
@@ -46,7 +46,7 @@ function get_metadata(path::AbstractString)
     # Sort classes by WNID for Metalhead compatibility
     I = sortperm(meta["WNID"][is_child])
 
-    metadata = Dict{String,Any}()
+    metadata = Dict{String, Any}()
     metadata["class_WNIDs"] = Vector{String}(meta["WNID"][is_child][I]) # WordNet IDs
     metadata["class_names"] = split.(meta["words"][is_child][I], ", ")
     metadata["class_description"] = Vector{String}(meta["gloss"][is_child][I])
