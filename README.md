@@ -5,12 +5,13 @@
 [![Build Status](https://github.com/Julia-XAI/ImageNetDataset.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/Julia-XAI/ImageNetDataset.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Code Style: Runic](https://img.shields.io/badge/code_style-%E1%9A%B1%E1%9A%A2%E1%9A%BE%E1%9B%81%E1%9A%B2-black)](https://github.com/fredrikekre/Runic.jl)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
+[![JET](https://img.shields.io/badge/%F0%9F%9B%A9%EF%B8%8F_tested_with-JET.jl-233f9a)](https://github.com/aviatesk/JET.jl)
 
 Data loader for the ImageNet 2012 Classification Dataset (ILSVRC 2012-2017) in Julia.
 
-## Installation 
+## Installation
 
-The ImageNet dataset can be downloaded at [image-net.org](https://image-net.org/) 
+The ImageNet dataset can be downloaded at [image-net.org](https://image-net.org/)
 after signing up and accepting the terms of access.
 It is therefore required that you download this dataset manually.
 
@@ -26,7 +27,7 @@ By default, the ImageNet dataset will be loaded with the `CenterCropNormalize` t
 
 This uses [JpegTurbo.jl](https://github.com/JuliaIO/JpegTurbo.jl) to open the image
 and applies a center-cropping view to `(224, 224)` resolution to it.
-Afterwards, the image is normalized over color channels using normalization constants 
+Afterwards, the image is normalized over color channels using normalization constants
 which are compatible with most pretrained models from [Metalhead.jl](https://github.com/FluxML/Metalhead.jl).
 The output is in `WHC[N]` format (width, height, color channels, batchsize).
 
@@ -66,7 +67,7 @@ transform(tfm, path)
 ```
 
 ### DataAugmentation.jl compatibility
-Alternatively, ImageNetDataset is compatible with transformations from 
+Alternatively, ImageNetDataset is compatible with transformations from
 [DataAugmentation.jl](https://github.com/FluxML/DataAugmentation.jl/):
 
 ```julia
