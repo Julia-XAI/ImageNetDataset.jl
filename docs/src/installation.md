@@ -74,7 +74,7 @@ labeled subfolders by running the following shell scripts:
 
 **Extract metadata from the devkit:**
 ```bash
-mkdir -p ImageNet/devkit && tar -xvf ILSVRC2012_devkit_t12.tar -C ImageNet/devkit --strip-components=1
+mkdir -p ImageNet/devkit && tar -xvf ILSVRC2012_devkit_t12.tar.gz -C ImageNet/devkit --strip-components=1
 ```
 
 **Extract the training data:**
