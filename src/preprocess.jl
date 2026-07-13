@@ -60,10 +60,10 @@ $DOC_TRANSFORM_APPLY
 $DOC_TRANSFORM_KWARGS
 """
 Base.@kwdef struct CenterCropNormalize{T} <: AbstractTransform
-    output_size::NTuple{2,Int} = OUTPUT_SIZE
-    open_size::NTuple{2,Int} = OPEN_SIZE
-    mean::NTuple{3,T} = PYTORCH_MEAN
-    std::NTuple{3,T} = PYTORCH_STD
+    output_size::NTuple{2, Int} = OUTPUT_SIZE
+    open_size::NTuple{2, Int} = OPEN_SIZE
+    mean::NTuple{3, T} = PYTORCH_MEAN
+    std::NTuple{3, T} = PYTORCH_STD
 end
 
 function transform(tfm::CenterCropNormalize{T}, path::AbstractString) where {T}
@@ -90,10 +90,10 @@ $DOC_TRANSFORM_APPLY
 $DOC_TRANSFORM_KWARGS
 """
 Base.@kwdef struct RandomCropNormalize{T} <: AbstractTransform
-    output_size::NTuple{2,Int} = OUTPUT_SIZE
-    open_size::NTuple{2,Int} = OPEN_SIZE
-    mean::NTuple{3,T} = PYTORCH_MEAN
-    std::NTuple{3,T} = PYTORCH_STD
+    output_size::NTuple{2, Int} = OUTPUT_SIZE
+    open_size::NTuple{2, Int} = OPEN_SIZE
+    mean::NTuple{3, T} = PYTORCH_MEAN
+    std::NTuple{3, T} = PYTORCH_STD
 end
 
 function transform(tfm::RandomCropNormalize{T}, path::AbstractString) where {T}
@@ -126,10 +126,10 @@ function inverse_normalize!(x, μ, σ)
 end
 
 # Load image from file path
-load_image(path::AbstractString, T::Type=Float32) = JpegTurbo.jpeg_decode(RGB{T}, path)
+load_image(path::AbstractString, T::Type = Float32) = JpegTurbo.jpeg_decode(RGB{T}, path)
 
-function load_image(path::AbstractString, (w, h), T::Type=Float32)
-    JpegTurbo.jpeg_decode(RGB{T}, path; preferred_size=(h, w))
+function load_image(path::AbstractString, (w, h), T::Type = Float32)
+    return JpegTurbo.jpeg_decode(RGB{T}, path; preferred_size = (h, w))
 end
 
 # Take rectangle of pixels of shape `output_size` at the center of image `im`
@@ -159,7 +159,7 @@ end
 
 adjust_index(i::Integer) = ifelse(iszero(i % 2), 1, 0)
 
-function tensor2img(x::AbstractArray{T,N}, mean, std) where {T,N}
+function tensor2img(x::AbstractArray{T, N}, mean, std) where {T, N}
     @assert N == 3 || N == 4
     x = PermutedDimsArray(x, (3, 2, 1, 4:N...)) # Convert from WHC[N] to CHW[N]
     return colorview(RGB, inverse_normalize(x, mean, std))

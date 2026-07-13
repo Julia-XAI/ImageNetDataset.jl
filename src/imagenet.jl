@@ -112,25 +112,25 @@ julia> dataset.metadata["class_names"][y]
 
 [1]: [Russakovsky et al., ImageNet Large Scale Visual Recognition Challenge](https://arxiv.org/abs/1409.0575)
 """
-struct ImageNet{T,S<:AbstractString} # <: SupervisedDataset
+struct ImageNet{T, S <: AbstractString} # <: SupervisedDataset
     split::Symbol
     transform::T
     paths::Vector{S}
     targets::Vector{Int}
-    metadata::Dict{String,Any}
+    metadata::Dict{String, Any}
 end
 
-ImageNet(; split=:train, kws...) = ImageNet(split; kws...)
+ImageNet(; split = :train, kws...) = ImageNet(split; kws...)
 
 function ImageNet(
-    split::Symbol;
-    transform=CenterCropNormalize(),
-    dir=nothing,
-    train_dir="train",
-    val_dir="val",
-    test_dir="test",
-    devkit_dir="devkit",
-)
+        split::Symbol;
+        transform = CenterCropNormalize(),
+        dir = nothing,
+        train_dir = "train",
+        val_dir = "val",
+        test_dir = "test",
+        devkit_dir = "devkit",
+    )
     depname = "ImageNet"
     root_dir = get_datadep_dir(depname, dir)
 
@@ -157,10 +157,10 @@ end
 Base.length(d::ImageNet) = length(d.paths)
 
 const IMAGENET_MEMORY_WARNING = """Loading the entire ImageNet dataset into memory might not be possible.
-    If you are sure you want to load all of ImageNet, use `dataset[1:end]` instead of `dataset[:]`.
-    """
+If you are sure you want to load all of ImageNet, use `dataset[1:end]` instead of `dataset[:]`.
+"""
 Base.getindex(::ImageNet, ::Colon) = throw(ArgumentError(IMAGENET_MEMORY_WARNING))
-Base.getindex(d::ImageNet, i) = (features=get_features(d, i), targets=d.targets[i])
+Base.getindex(d::ImageNet, i) = (features = get_features(d, i), targets = d.targets[i])
 
 get_features(d::ImageNet, i::Integer) = transform(d.transform, d.paths[i])
 get_features(d::ImageNet, is::AbstractVector) = StackView(get_features.(Ref(d), is))
@@ -190,7 +190,7 @@ julia> convert2image(MNIST, x) # or convert2image(d, x)
 convert2image(d::ImageNet, x::AbstractArray) = inverse_transform(d.transform, x)
 convert2image(d::ImageNet, i::Integer) = inverse_transform(d.transform, get_features(d, i))
 function convert2image(d::ImageNet, is::AbstractRange)
-    inverse_transform(d.transform, get_features(d, is))
+    return inverse_transform(d.transform, get_features(d, is))
 end
 
 """

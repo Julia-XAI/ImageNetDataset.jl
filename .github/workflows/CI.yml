@@ -75,3 +75,12 @@ jobs:
           using ImageNetDataset
           DocMeta.setdocmeta!(ImageNetDataset, :DocTestSetup, :(using ImageNetDataset); recursive=true)
           doctest(ImageNetDataset)
+
+  runic:
+    name: Runic formatting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: fredrikekre/runic-action@v1
+        with:
+          version: '1'
