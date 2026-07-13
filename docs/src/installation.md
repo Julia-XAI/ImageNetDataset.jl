@@ -24,7 +24,7 @@ ImageNet
 ```
 
 !!! tip "Using individual splits"
-    ImageNetDataset.jl can be used to load a single split 
+    ImageNetDataset.jl can be used to load a single split
     and doesn't require all subdirectories `train`, `test` and `val` to be available.
 
 ImageNetDataset.jl expects the `ImageNet` directory to live in `~/.julia/datadeps/`.
@@ -38,7 +38,7 @@ dir = joinpath(homedir(), "Path", "To", "ImageNet")
 dataset = ImageNet(; dir=dir)
 ```
 
-If the existing subdirectory names differ from `train`, `val`, `test` and `devkit` as well, 
+If the existing subdirectory names differ from `train`, `val`, `test` and `devkit` as well,
 they can be changed via the keyword arguments `train_dir`, `val_dir`, `test_dir` and `devkit_dir`.
 
 ### Option 2: Using symbolic links
@@ -50,7 +50,7 @@ On Unix-like operating systems, this can be done using `ln`:
 ln -s my/path/to/ImageNet ~/.julia/datadeps/ImageNet
 ```
 
-In case the subdirectory structure is different as well, multiple symbolic links 
+In case the subdirectory structure is different as well, multiple symbolic links
 can be set to the following directories:
 * `~/.julia/datadeps/ImageNet/train`
 * `~/.julia/datadeps/ImageNet/val`
@@ -62,10 +62,10 @@ Download the following files from the [ILSVRC2012 download page](https://image-n
 
 | Name                          | File name                           | Size  | Note                               |
 |:------------------------------|:------------------------------------|:------|:-----------------------------------|
-| Development kit (Task 1 & 2)  | `ILSVRC2012_devkit_t12.tar.gz`      | 2.5MB | Always required, contains metadata | 
+| Development kit (Task 1 & 2)  | `ILSVRC2012_devkit_t12.tar.gz`      | 2.5MB | Always required, contains metadata |
 | Training images (Task 1 & 2)  | `ILSVRC2012_img_train.tar`          | 138GB | Only required for `:train` split   |
 | Validation images (all tasks) | `ILSVRC2012_img_val.tar`            | 6.3GB | Only required for `:val` split     |
-| Test images (all tasks)       | `ILSVRC2012_img_test_v10102019.tar` | 13GB  | Only required for `:test` split    | 
+| Test images (all tasks)       | `ILSVRC2012_img_test_v10102019.tar` | 13GB  | Only required for `:test` split    |
 
 You can use ImageNetDataset.jl without downloading all splits.
 
@@ -91,8 +91,8 @@ find . -name "*.tar" | while read NAME ; do mkdir -p "\${NAME%.tar}"; tar -xvf "
 mkdir -p ImageNet/val && tar -xvf ILSVRC2012_img_val.tar -C ImageNet/val
 ```
 
-And run the following script 
-[adapted from soumith](https://github.com/soumith/imagenetloader.torch/blob/master/valprep.sh) 
+And run the following script
+[adapted from soumith](https://github.com/soumith/imagenetloader.torch/blob/master/valprep.sh)
 to create all class directories and move images into corresponding directories:
 
 ```bash
